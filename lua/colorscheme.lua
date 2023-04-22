@@ -1,0 +1,9 @@
+-- local colorscheme = "onedark_vivid"
+--
+--
+--
+-- local status_ok, _ = pcall(vim.cmd, "colorscheme ", .. colorscheme)
+-- if not status_ok then
+--   vim.notify("colorscheme: ", .. colorscheme .. "can not be found! ")
+--   return
+-- end
