@@ -19,8 +19,10 @@ map('c', '<C-k>', '<C-p>', { noremap = false })
 map('n', '<leader>h', ":Dashboard<CR>", opt)
 
 -- ctrl + / => comment
-map('n', '<C-_>', 'gcc', { noremap =false })
-map('v', '<C-_>', 'gcc', { noremap =false })
+-- map('n', '<C-_>', 'gcc', { noremap =false })
+-- map('v', '<C-_>', 'gcc', { noremap =false })
+
+
 
 -- map('n', '<leader>j', '5j', opt)
 -- map('n', '<leader>k', '5k', opt)
@@ -74,6 +76,30 @@ pluginKeys.nvimTreeList = {
 	-- { key = { 'N' }, action = 'dir_up' },
 	-- { key = 'v', action = 'vsplit' },
 }
+
+-- debug => dap
+map(
+    'n',
+    '<F12>',
+    ":lua require'dap'.close()<CR>"
+    .. ":lua require'dap'.terminate()<CR>"
+    .. ":lua require'dap.repl'.close()<CR>"
+    .. ":lua require'dapui'.close()<CR>"
+    .. ":lua require('dap').clear_breakpoints()<CR>"
+    .. '<C-w>o<CR>',
+    opt
+  )
+-- start or continue
+map('n', '<F5>', ":lua require'dap'.continue()<CR>", opt)
+-- breakpoint
+map('n', '<F2>', ":lua require'dap'.toggle_breakpoint()<CR>", opt)
+map('n', '<F1>', ":lua require'dap'.clear_breakpoints()<CR>", opt)
+--  stepOver, stepOut, stepInto
+map('n', '<F7>', ":lua require'dap'.step_over()<CR>", opt)
+map('n', '<F8>', ":lua require'dap'.step_out()<CR>", opt)
+map('n', '<F6>', ":lua require'dap'.step_into()<CR>", opt)
+-- pop up
+map('n', '<leader>dh', ":lua require'dapui'.eval()<CR>", opt)
 
 -- return all custom keybindings to needed lua configurations
 return pluginKeys

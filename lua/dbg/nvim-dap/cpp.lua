@@ -1,4 +1,4 @@
-local dap = require("dap")
+local dap = require('dap')
 
 dap.adapters.cppdbg = {
   id = "cppdbg",
@@ -24,4 +24,3 @@ dap.configurations.cpp = {
 
 dap.configurations.c = dap.configurations.cpp
 
-dap.setup {}

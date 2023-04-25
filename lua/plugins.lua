@@ -30,19 +30,23 @@ require("lazy").setup({
     {
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
-        config = function()
-          require('dashboard').setup {
-            -- config
-          }
-        end,
+        -- config = function()
+        --   require('dashboard').setup {
+        --     -- config
+        --   }
+        -- end,
         dependencies = { {'nvim-tree/nvim-web-devicons'}}
     },
 
     -- file explorer nvim-tree
     "nvim-tree/nvim-tree.lua",
 
-    -- autopairs
-    "windwp/nvim-autopairs",
+    -- telescope
+    "nvim-lua/plenary.nvim",
+    {
+      'nvim-telescope/telescope.nvim', tag = '0.1.1',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+    },
 
     -- noice
     "MunifTanjim/nui.nvim",
@@ -94,6 +98,8 @@ require("lazy").setup({
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
 
+    -- autopairs
+    "windwp/nvim-autopairs",
     -------------------------- debug ---------------------------
     "mfussenegger/nvim-dap",
     {
@@ -110,9 +116,11 @@ require("lazy").setup({
 
     -- colorscheme onenord
     "rmehri01/onenord.nvim",
+    -- colorscheme catppuccin
+    { "catppuccin/nvim", name = "catppuccin" },
   })
 
-vim.cmd("colorscheme onedark_vivid")
+-- vim.cmd("colorscheme onedark_vivid")
 
 -- vim.cmd("colorscheme onenord")
 

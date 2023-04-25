@@ -1,4 +1,5 @@
 local list_keys = require("keybindings").nvimTreeList
+
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
     disable_netrw = true,
@@ -9,12 +10,13 @@ require("nvim-tree").setup({
       enable = false,
     },
     view = {
-        width = 30,
-        -- mappings = {
-	      -- custom_only = true,
-        --    list = list_keys,
+      hide_root_folder = false,
+      width = 30,
+      -- mappings = {
+          -- custom_only = true,
+          -- list = list_keys,
         -- },
-	  signcolumn = 'yes',
+	    signcolumn = 'yes',
     },
     renderer = {
         group_empty = true
