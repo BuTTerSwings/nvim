@@ -22,5 +22,14 @@ dap.configurations.cpp = {
   },
 }
 
+setupCommands = {
+  {
+     text = '-enable-pretty-printing',
+     description =  'enable pretty printing',
+     ignoreFailures = false
+  },
+}
+
+
 dap.configurations.c = dap.configurations.cpp
 

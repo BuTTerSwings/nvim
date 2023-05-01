@@ -20,6 +20,9 @@ require("lazy").setup({
     { "folke/neoconf.nvim", cmd = "Neoconf" },
     "folke/neodev.nvim",
 
+    -- impatient accelerate lua
+    'lewis6991/impatient.nvim',
+
     -- nvim-treesitter
     "nvim-treesitter/nvim-treesitter",
 
@@ -30,11 +33,6 @@ require("lazy").setup({
     {
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
-        -- config = function()
-        --   require('dashboard').setup {
-        --     -- config
-        --   }
-        -- end,
         dependencies = { {'nvim-tree/nvim-web-devicons'}}
     },
 
@@ -58,6 +56,18 @@ require("lazy").setup({
           'MunifTanjim/nui.nvim',
           'rcarriga/nvim-notify'
         }
+    },
+    -- trouble
+    {
+      "folke/trouble.nvim",
+      dependencies = "nvim-tree/nvim-web-devicons",
+      config = function()
+        require("trouble").setup {
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        }
+      end
     },
     -- comment
     {
@@ -116,17 +126,19 @@ require("lazy").setup({
 
     -- colorscheme onenord
     "rmehri01/onenord.nvim",
+
     -- colorscheme catppuccin
     { "catppuccin/nvim", name = "catppuccin" },
+
+    -- colorscheme tokyonight
+    "folke/tokyonight.nvim",
+
+    -- colorscheme kanagawa
+    "rebelot/kanagawa.nvim",
+
+    -- colorscheme material
+    "marko-cerovac/material.nvim",
+
+    -- colorscheme nightfox
+    "EdenEast/nightfox.nvim",
   })
-
--- vim.cmd("colorscheme onedark_vivid")
-
--- vim.cmd("colorscheme onenord")
-
--- vim.o.background = 'dark'
--- vim.g.colors_name = 'onedark_nvim'
--- vim.g.onedark_override = {
---    red = "#FF0000",
---    red_light = "#e67780"
--- }

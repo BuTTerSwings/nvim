@@ -1,3 +1,5 @@
+-- vim.g.tokyonight_terminal_colors = true
+
 -- utf-8
 vim.g.encoding = 'UTF-8'
 vim.o.fileencoding = 'UTF-8'

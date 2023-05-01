@@ -25,6 +25,8 @@ require("nvim-dap-virtual-text").setup {
     --   return variable.name .. ' = ' .. variable.value
     -- end,
 
+    filter_references_pattern = '<module',
+
     -- experimental features:
     virt_text_pos = 'eol',                 -- position of virtual text, see `:h nvim_buf_set_extmark()`
     all_frames = false,                    -- show virtual text for all stack frames not only current. Only works for debugpy on my machine.
@@ -150,3 +152,4 @@ dap.listeners.before.event_exited["dapui_config"] = function ()
 end
 
 require("dbg.nvim-dap.cpp")
+require("keybindings").mapDap()

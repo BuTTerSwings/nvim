@@ -1,48 +1,80 @@
-require("dashboard").setup({
-  theme = 'hyper',
-  config = {
-    week_header = {
-      enable = true,
-    },
-    shortcut = {
-      { desc = ' Update', group = '@property', action = 'Lazy update', key = 'u' },
-      {
-        icon = ' ',
-        icon_hl = '@variable',
-        desc = 'Files',
-        group = 'Label',
-        action = 'Telescope find_files',
-        key = 'p',
-      },
-      {
-        icon = ' ',
-        icon_hl = '@variable',
-        desc = 'Contents',
-        group = 'Label',
-        action = 'Telescope live_grep',
-        key = 'f',
-      },
-      {
-        icon = ' ',
-        icon_hl = '@variable',
-        desc = 'Old Files',
-        group = 'Label',
-        action = 'Telescope oldfiles',
-        key = 'o',
-      },
-      -- {
-      --   desc = ' Apps',
-      --   group = 'DiagnosticHint',
-      --   action = 'Telescope app',
-      --   key = 'a',
-      -- },
-      -- {
-      --   desc = ' dotfiles',
-      --   group = 'Number',
-      --   action = 'Telescope dotfiles',
-      --   key = 'd',
-      -- },
-    },
-  },
-})
+local db = require("dashboard")
 
+db.setup {
+  theme = 'doom',
+  config = {
+    footer = {
+      '',
+      '',
+    },
+
+    center = {
+      -- {
+      --   icon = "  ",
+      --   desc = "Projects                            ",
+      --   action = "Telescope projects",
+      -- },
+      {
+        icon = "                     ",
+        desc = "Recently files                      ",
+        action = "Telescope oldfiles",
+      },
+      {
+        icon = '                     ',
+        desc = 'Find file                           ',
+        action = 'Telescope find_files',
+      },
+      {
+        icon = "                     ",
+        desc = "Find text                           ",
+        action = "Telescope live_grep",
+      },
+      {
+        icon = '                     ',
+        desc = 'Edit keybindings                    ',
+        action = 'edit ~/appdata/local/nvim/lua/keybindings.lua',
+      },
+      -- {
+      --   icon = "  ",
+      --   desc = "Edit Projects                       ",
+      --   action = "edit ~/.local/share/nvim/project_nvim/project_history",
+      -- },
+      -- {
+      --   icon = '                     ',
+      --   icon_hl = 'title',
+      --   desc = 'Edit PowerShell                     ',
+      --   desc_hl = 'string',
+      --   action = 'edit D:/UsersData/Documents/PowerShell/Microsoft.PowerShell_profile.ps1',
+      -- },
+      {
+        icon = '                     ',
+        desc = 'Change colorscheme                  ',
+        action = 'Telescope colorscheme',
+      },
+      {
+        icon = '                     ',
+        desc = "Edit init.lua                       ",
+        action = 'edit ~/appdata/local/nvim/init.lua',
+      },
+    },
+
+    header = {
+    [[]],
+    [[                                                   ]],
+    [[                                                   ]],
+    [[                                                   ]],
+    [[                                                   ]],
+    [[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
+    [[ ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
+    [[ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
+    [[ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
+    [[ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
+    [[ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
+    [[                                                   ]],
+    [[                [ version : 0.8.3 ]                ]],
+    [[                                                   ]],
+    [[                                                   ]],
+    [[                                                   ]],
+    },
+  }
+}

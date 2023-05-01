@@ -1,4 +1,4 @@
--- 自定义图标
+-- custom icons
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,

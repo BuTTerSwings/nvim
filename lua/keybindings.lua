@@ -44,6 +44,7 @@ map('n', '<A-l>', ':BufferLineCycleNext<CR>', opt)
 -- close buffers => vim-bbye
 map('n', 'xc', ':Bdelete!<CR>', opt)
 map('n', 'xx', ':Bdelete!<CR><cmd>close<CR>', opt)
+map('n', 'xo', ':BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>', opt)
 
 -- split the windows
 map('n', 'sv', ':vsp<CR>', opt)
@@ -69,37 +70,87 @@ map('n', '<A-m>', ':NvimTreeToggle<CR>', opt)
 map('v', '<', '<gv', opt)
 map('v', '>', '>gv', opt)
 
+-- noice
+map('n', '<leader>n', ":Noice<CR>", opt)
+-- trouble
+map('n', '<leader>t', ":Trouble<CR>", opt)
+
 -- custom nvim-tree keybindings list
-pluginKeys.nvimTreeList = {
+-- have been deprecated
+-- pluginKeys.nvimTreeList = {
 	-- { key = { '<CR>', 'o', '2-LeftMouse>' }, action = 'edit' },
 	-- { key = { 'n' }, action = 'cd' },
 	-- { key = { 'N' }, action = 'dir_up' },
 	-- { key = 'v', action = 'vsplit' },
+-- }
+
+-- telescope
+map('n', '<C-f>', ':Telescope find_files<CR>', opt)
+map('n', '<C-p>', ':Telescope live_grep<CR>', opt)
+map('n', '<C-o>', ':Telescope oldfiles<CR>', opt)
+pluginKeys.mapTelescope = {
+  i = {
+    -- move
+    ['<C-j>'] = 'move_selection_next',
+    ['<C-k>'] = 'move_selection_previous',
+    ['<C-n>'] = 'move_selection_next',
+    ['<C-p>'] = 'move_selection_previous',
+
+    -- history
+    ['<Down>'] = 'cycle_history_next',
+    ['<Up>'] = 'cycle_history_prev',
+
+    -- close
+    ['<C-c>'] = 'close',
+
+    -- preview scroll
+    ['<C-u>'] = 'preview_scrolling_up',
+    ['<C-d>'] = 'preview_scrolling_down',
+
+    -- whichkey
+    ["<C-h>"] = "which_key"
+  },
 }
 
 -- debug => dap
-map(
-    'n',
-    '<F12>',
-    ":lua require'dap'.close()<CR>"
-    .. ":lua require'dap'.terminate()<CR>"
-    .. ":lua require'dap.repl'.close()<CR>"
-    .. ":lua require'dapui'.close()<CR>"
-    .. ":lua require('dap').clear_breakpoints()<CR>"
-    .. '<C-w>o<CR>',
-    opt
-  )
--- start or continue
-map('n', '<F5>', ":lua require'dap'.continue()<CR>", opt)
--- breakpoint
-map('n', '<F2>', ":lua require'dap'.toggle_breakpoint()<CR>", opt)
-map('n', '<F1>', ":lua require'dap'.clear_breakpoints()<CR>", opt)
---  stepOver, stepOut, stepInto
-map('n', '<F7>', ":lua require'dap'.step_over()<CR>", opt)
-map('n', '<F8>', ":lua require'dap'.step_out()<CR>", opt)
-map('n', '<F6>', ":lua require'dap'.step_into()<CR>", opt)
--- pop up
-map('n', '<leader>dh', ":lua require'dapui'.eval()<CR>", opt)
+pluginKeys.mapDap = function ()
 
+  -- quit
+  map(
+      'n',
+      '<S-F5>',
+      ":lua require'dap'.close()<CR>"
+      .. ":lua require'dap'.terminate()<CR>"
+      .. ":lua require'dap.repl'.close()<CR>"
+      .. ":lua require'dapui'.close()<CR>"
+      .. ":lua require('dap').clear_breakpoints()<CR>"
+      .. '<C-w>o<CR>',
+      opt
+    )
+  -- restart
+  map('n', '<C-S-F5>', ":lua require'dap'.restart()<CR>", opt)
+
+  -- start or continue
+  map('n', '<F5>', ":lua require'dap'.continue()<CR>", opt)
+
+  -- breakpoint
+  map('n', '<F1>', ":lua require'dap'.toggle_breakpoint()<CR>", opt)
+  map('n', '<F2>', ":lua require'dap'.clear_breakpoints()<CR>", opt)
+
+  --  stepOver, stepOut, stepInto
+
+  -- ignore sub functions as one step
+  map('n', '<F10>', ":lua require'dap'.step_over()<CR>", opt)
+
+  -- complete sub functions and turn to parent node
+  map('n', '<S-F11>', ":lua require'dap'.step_out()<CR>", opt)
+
+  -- step by step
+  map('n', '<F11>', ":lua require'dap'.step_into()<CR>", opt)
+
+  -- pop up
+  map('n', '<F12>', ":lua require'dapui'.eval()<CR>", opt)
+
+end
 -- return all custom keybindings to needed lua configurations
 return pluginKeys
