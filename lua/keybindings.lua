@@ -86,8 +86,10 @@ map('n', '<leader>t', ":Trouble<CR>", opt)
 
 -- telescope
 map('n', '<C-f>', ':Telescope find_files<CR>', opt)
-map('n', '<C-p>', ':Telescope live_grep<CR>', opt)
+map('n', '<C-t>', ':Telescope live_grep<CR>', opt)
 map('n', '<C-o>', ':Telescope oldfiles<CR>', opt)
+map('n', '<C-m>', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', opt)
+map('n', '<C-p>', ":lua require'telescope'.extensions.project.project{ display_type = 'full' }<CR>", opt)
 pluginKeys.mapTelescope = {
   i = {
     -- move
@@ -109,6 +111,9 @@ pluginKeys.mapTelescope = {
 
     -- whichkey
     ["<C-h>"] = "which_key"
+  },
+  n = {
+    ['q'] = 'close',
   },
 }
 

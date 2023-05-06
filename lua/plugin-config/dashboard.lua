@@ -9,10 +9,15 @@ db.setup {
     },
 
     center = {
+      {
+        icon = "                     ",
+        desc = "Projects                            ",
+        action = "Telescope project",
+      },
       -- {
-      --   icon = "  ",
-      --   desc = "Projects                            ",
-      --   action = "Telescope projects",
+      --   icon = "                     ",
+      --   desc = "Edit Projects                       ",
+      --   action = "edit ~/.local/share/nvim/project_nvim/project_history",
       -- },
       {
         icon = "                     ",
@@ -35,11 +40,6 @@ db.setup {
         action = 'edit ~/appdata/local/nvim/lua/keybindings.lua',
       },
       -- {
-      --   icon = "  ",
-      --   desc = "Edit Projects                       ",
-      --   action = "edit ~/.local/share/nvim/project_nvim/project_history",
-      -- },
-      -- {
       --   icon = '                     ',
       --   icon_hl = 'title',
       --   desc = 'Edit PowerShell                     ',
@@ -60,8 +60,6 @@ db.setup {
 
     header = {
     [[]],
-    [[                                                   ]],
-    [[                                                   ]],
     [[                                                   ]],
     [[                                                   ]],
     [[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],

@@ -39,12 +39,29 @@ require("lazy").setup({
     -- file explorer nvim-tree
     "nvim-tree/nvim-tree.lua",
 
-    -- telescope
+    ------------------------- telescope ------------------------
+
     "nvim-lua/plenary.nvim",
     {
       'nvim-telescope/telescope.nvim', tag = '0.1.1',
       dependencies = { 'nvim-lua/plenary.nvim' }
     },
+
+    {
+      'nvim-telescope/telescope-ui-select.nvim',
+      dependencies = 'nvim-telescope/telescope.nvim',
+    },
+
+    {
+      "nvim-telescope/telescope-file-browser.nvim",
+      dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    },
+
+    {
+      'nvim-telescope/telescope-project.nvim',
+      dependencies = { "nvim-telescope/telescope.nvim", "nvim-telescope/telescope-file-browser.nvim"}
+    },
+    ------------------------------------------------------------
 
     -- noice
     "MunifTanjim/nui.nvim",
@@ -78,10 +95,19 @@ require("lazy").setup({
           }
         end,
     },
+    -------------------------- tools ---------------------------
+    -- cmake-tools
+    {
+      "Civitasv/cmake-tools.nvim",
+      dependencies = 'nvim-lua/plenary.nvim',
+    },
     ----------------------- status bars ------------------------
     -- lualine
-    "nvim-lualine/lualine.nvim",
-
+    {
+      "nvim-lualine/lualine.nvim",
+      dependencies = 'nvim-tree/nvim-web-devicons',
+      opt = true,
+    },
     -- bufferline
     {
       'akinsho/bufferline.nvim',
@@ -141,4 +167,7 @@ require("lazy").setup({
 
     -- colorscheme nightfox
     "EdenEast/nightfox.nvim",
+
+    -- colorscheme dracula
+    "Mofiqul/dracula.nvim",
   })
