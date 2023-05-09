@@ -4,13 +4,13 @@ if vim.fn.exists "g:neovide" then
   ]]
   vim.cmd(neovide_cfg)
 end
--- set guifont = "Cascadia Code\ Nerd\ Font\ Complete\ Mono:h14"
--- vim.o.guifont = "Cascadia Code:h13"
-vim.o.guifont = "CaskaydiaCove NFM:h13"
+vim.o.guifont = "CaskaydiaCove NF:h13"
+-- vim.o.guifont = "Hack NFM:h14"
+-- vim.o.guifont = "JetBrainsMono NFM:h13"
 
-require("plugins")
-require("keybindings")
 require("basic")
+require("keybindings")
+require("plugins")
 require("colorscheme")
 
 require("plugin-config.nvim-treesitter")

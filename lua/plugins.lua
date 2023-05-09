@@ -101,12 +101,13 @@ require("lazy").setup({
       "Civitasv/cmake-tools.nvim",
       dependencies = 'nvim-lua/plenary.nvim',
     },
+
     ----------------------- status bars ------------------------
     -- lualine
     {
       "nvim-lualine/lualine.nvim",
       dependencies = 'nvim-tree/nvim-web-devicons',
-      opt = true,
+      -- opt = true,
     },
     -- bufferline
     {
@@ -170,4 +171,7 @@ require("lazy").setup({
 
     -- colorscheme dracula
     "Mofiqul/dracula.nvim",
+
+    -- colorscheme zephyr
+    "glepnir/zephyr-nvim",
   })
