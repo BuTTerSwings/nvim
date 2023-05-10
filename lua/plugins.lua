@@ -118,6 +118,15 @@ require("lazy").setup({
     -- close buffers
     "moll/vim-bbye",
 
+    -- winbar
+    'fgheng/winbar.nvim',
+
+    -- navic vscode like components
+    {
+      "SmiteshP/nvim-navic",
+      dependencies = "neovim/nvim-lspconfig",
+    },
+
     --------------------------  lsp  ---------------------------
     -- error lens
     {
@@ -137,6 +146,8 @@ require("lazy").setup({
 
     -- autopairs
     "windwp/nvim-autopairs",
+
+
     -------------------------- debug ---------------------------
     "mfussenegger/nvim-dap",
     {
@@ -174,4 +185,10 @@ require("lazy").setup({
 
     -- colorscheme zephyr
     "glepnir/zephyr-nvim",
+
+    -- colorscheme vscode
+    "Mofiqul/vscode.nvim",
+
+    -- colorscheme one-nvim
+    "Th3Whit3Wolf/one-nvim"
   })

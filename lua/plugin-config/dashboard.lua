@@ -47,12 +47,12 @@ db.setup {
       --   action = 'edit D:/UsersData/Documents/PowerShell/Microsoft.PowerShell_profile.ps1',
       -- },
       {
-        icon = '                     ',
+        icon = '                     ',
         desc = 'Change colorscheme                  ',
         action = 'Telescope colorscheme',
       },
       {
-        icon = '                     ',
+        icon = '                     ',
         desc = "Edit init.lua                       ",
         action = 'edit ~/appdata/local/nvim/init.lua',
       },

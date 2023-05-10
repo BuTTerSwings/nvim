@@ -28,5 +28,7 @@ require("lsp.ui")
 
 require("plugin-config.lualine")
 require("plugin-config.bufferline")
+require("plugin-config.winbar")
+require("plugin-config.navic")
 
 require("dbg.nvim-dap")

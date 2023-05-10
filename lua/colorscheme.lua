@@ -1,4 +1,4 @@
-local colorscheme = "catppuccin-frappe"
+local colorscheme = "onedark_vivid"
 -- onedark_vivid
 -- onenord
 -- catppuccin-latte
