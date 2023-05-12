@@ -109,6 +109,10 @@ require("lazy").setup({
       dependencies = 'nvim-tree/nvim-web-devicons',
       -- opt = true,
     },
+    {
+      'arkav/lualine-lsp-progress',
+      dependencies = "nvim-lualine/lualine.nvim",
+    },
     -- bufferline
     {
       'akinsho/bufferline.nvim',
@@ -128,13 +132,16 @@ require("lazy").setup({
     },
 
     --------------------------  lsp  ---------------------------
-    -- error lens
+    -- lsp installer
     {
       "williamboman/mason.nvim",
       build = ":MasonUpdate" -- :MasonUpdate updates registry contents
     },
+    -- configuration of lsp
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+    "ray-x/lsp_signature.nvim",
+
     -- cmp
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
@@ -143,6 +150,19 @@ require("lazy").setup({
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
+    'hrsh7th/cmp-nvim-lsp-signature-help',
+
+    -- snippets
+    "rafamadriz/friendly-snippets",
+
+    -- lsp ui
+    "onsails/lspkind-nvim",
+    "tami5/lspsaga.nvim",
+
+    "lewis6991/hover.nvim",
+
+    -- formatter
+    "mhartington/formatter.nvim",
 
     -- autopairs
     "windwp/nvim-autopairs",
@@ -161,6 +181,7 @@ require("lazy").setup({
 
     -- colorscheme onehalf
     "szsdk/onehalf.nvim",
+    'rktjmp/lush.nvim',
 
     -- colorscheme onenord
     "rmehri01/onenord.nvim",

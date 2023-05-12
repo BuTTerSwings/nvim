@@ -1,6 +1,6 @@
 -- vim.g.tokyonight_terminal_colors = true
 
-vim.loader.enable()
+-- vim.loader.enable()
 
 -- utf-8
 vim.g.encoding = 'UTF-8'
@@ -43,3 +43,14 @@ vim.bo.shiftwidth = 2
 vim.o.pumheight = 10
 
 -- cursor blink
+
+
+--disable backups
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.swapfile = false
+
+-- split window position
+-- bottom and right
+vim.o.splitbelow = true
+vim.o.splitright = true

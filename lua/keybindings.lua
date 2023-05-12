@@ -157,5 +157,87 @@ pluginKeys.mapDap = function ()
   map('n', '<F12>', ":lua require'dapui'.eval()<CR>", opt)
 
 end
+
+-- format
+map('n', '<C-s>', ':Format<CR>', opt)
+
+pluginKeys.cmp = function(cmp)
+  local feedkey = function(key, mode)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+  end
+  local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+  end
+
+  return {
+    -- 上一个
+    ['<C-k>'] = cmp.mapping.select_prev_item(),
+    -- 下一个
+    ['<C-j>'] = cmp.mapping.select_next_item(),
+    -- 出现补全
+    ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    -- 取消
+    ['<A-,>'] = cmp.mapping({
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    }),
+    -- 确认
+    -- Accept currently selected item. If none selected, `select` first item.
+    -- Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({
+      select = true,
+      behavior = cmp.ConfirmBehavior.Replace,
+    }),
+    -- ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    -- 如果窗口内容太多，可以滚动
+    ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        -- Super Tab
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif vim.fn["vsnip#available"](1) == 1 then
+        feedkey("<Plug>(vsnip-expand-or-jump)", "")
+      elseif has_words_before() then
+        cmp.complete()
+      else
+        fallback()
+      end
+    end, {"i", "s"}),
+
+    ["<S-Tab>"] = cmp.mapping(function()
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+        feedkey("<Plug>(vsnip-jump-prev)", "")
+      end
+    end, {"i", "s"})
+  }
+end
+
+pluginKeys.mapLsp = function(mapbuf)
+  mapbuf('n', '<leader>s', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opt)
+  mapbuf('n', 'cm', '<cmd>Lspsaga rename<CR>', opt)
+  mapbuf('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', opt)
+  mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
+  mapbuf('n', 'gh', '<cmd>Lspsaga hover_doc<cr>', opt)
+  mapbuf('n', 'gr', '<cmd>Lspsaga lsp_finder<CR>', opt)
+  mapbuf('n', 'gp', '<cmd>Lspsaga show_line_diagnostics<CR>', opt)
+  mapbuf('n', 'gj', '<cmd>Lspsaga diagnostic_jump_next<cr>', opt)
+  mapbuf('n', 'gk', '<cmd>Lspsaga diagnostic_jump_prev<cr>', opt)
+  --mapbuf("n", '<C-n>', '<cmd>Lspsaga vim.lsp.buf.format<CR>', opt)
+  --mapbuf("n", "<C-n>", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opt)
+  -- 未用
+  -- mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
+  -- mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
+  -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
+  -- mapbuf("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)
+  -- mapbuf('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opt)
+  -- mapbuf('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opt)
+  -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
+  -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
+end
+
 -- return all custom keybindings to needed lua configurations
 return pluginKeys

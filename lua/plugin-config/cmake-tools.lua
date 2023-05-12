@@ -27,7 +27,7 @@ require("cmake-tools").setup {
       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/bin/", "file")
     end,
     cwd = "${workspaceFolder}",
-    stopAtEntry = true,
+    stopAtEntry = false,
   },
   -- dap configuration, optional
 

@@ -1,22 +1,3 @@
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
-
-require("mason-lspconfig").setup {
-    ensure_installed = {
-      "lua_ls",
-      -- "rust_analyzer",
-      "clangd",
-      "cmake",
-    },
-    automatic_installation = true,
-}
 
 require("lspconfig").clangd.setup {
   on_new_config = function(new_config, new_cwd)

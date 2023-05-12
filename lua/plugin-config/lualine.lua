@@ -1,4 +1,12 @@
 local navic = require("nvim-navic")
+local winbar = {
+  lualine_a = {
+    { 'filename' },
+  },
+  lualine_b = {
+    { navic.get_location, cond = navic.is_available },
+  },
+}
 
 require('lualine').setup {
   options = {
@@ -24,8 +32,9 @@ require('lualine').setup {
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {
       'filename',
+      'lsp_progress',
     },
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_x = {'filesize', 'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
