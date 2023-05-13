@@ -157,7 +157,7 @@ require("lazy").setup({
 
     -- lsp ui
     "onsails/lspkind-nvim",
-    "tami5/lspsaga.nvim",
+    "kkharji/lspsaga.nvim",
 
     "lewis6991/hover.nvim",
 
@@ -205,11 +205,17 @@ require("lazy").setup({
     "Mofiqul/dracula.nvim",
 
     -- colorscheme zephyr
-    "glepnir/zephyr-nvim",
+    {
+      "glepnir/zephyr-nvim",
+      dependencies = 'nvim-treesitter/nvim-treesitter',
+    },
 
     -- colorscheme vscode
     "Mofiqul/vscode.nvim",
 
     -- colorscheme one-nvim
-    "Th3Whit3Wolf/one-nvim"
+    "Th3Whit3Wolf/one-nvim",
+
+    -- colorscheme OnsetGlaze
+    "abhidahal/OnsetGlaze.nvim",
   })

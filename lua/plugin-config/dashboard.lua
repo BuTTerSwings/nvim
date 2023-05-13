@@ -56,10 +56,23 @@ db.setup {
         desc = "Edit init.lua                       ",
         action = 'edit ~/appdata/local/nvim/init.lua',
       },
+      {
+        icon = '                     ',
+        desc = 'Plugins                             ',
+        action = 'edit ~/appdata/local/nvim/lua/plugins.lua',
+
+      },
+      {
+        icon = '                     ',
+        desc = "Quit anyway                         ",
+        action = "qa!"
+      },
     },
 
     header = {
     [[]],
+    [[                                                   ]],
+    [[                                                   ]],
     [[                                                   ]],
     [[                                                   ]],
     [[ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],

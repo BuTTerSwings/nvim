@@ -46,6 +46,22 @@ local opts = {
   -- },
 }
 
+-- local configs = require("lspconfig.configs")
+-- local nvim_lsp = require("lspconfig")
+-- if not configs.neocmake then
+--     configs.neocmake = {
+--         default_config = {
+--             cmd = { "neocmakelsp", "--stdio" },
+--             filetypes = { "cmake" },
+--             root_dir = function(fname)
+--                 return nvim_lsp.util.find_git_ancestor(fname)
+--             end,
+--             single_file_support = true,-- suggested
+--             on_attach = on_attach -- on_attach is the on_attach function you defined
+--         }
+--     }
+-- end
+
 return {
   on_setup = function(server)
    --require("neodev").setup()
@@ -53,6 +69,13 @@ return {
       flags = {
         debounce_text_changes = 150,
       },
+      capabilities = {
+        workspace = {
+        didChangeWatchedFiles = {
+            dynamicRegistration = true,
+        },
+      },
+    },
       on_attach = function(client, bufnr)
         -- 禁用格式化功能，交给专门插件插件处理
         client.server_capabilities.document_formatting = false

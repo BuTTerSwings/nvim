@@ -11,6 +11,8 @@ local pluginKeys = {}
 
 local map = vim.api.nvim_set_keymap
 
+map('n', 'Q', ':q<CR>', opt)
+
 -- cmdline
 map('c', '<C-j>', '<C-n>', { noremap = false })
 map('c', '<C-k>', '<C-p>', { noremap = false })
@@ -218,18 +220,18 @@ end
 
 pluginKeys.mapLsp = function(mapbuf)
   mapbuf('n', '<leader>s', '<cmd>lua vim.lsp.buf.format { async = true }<CR>', opt)
-  mapbuf('n', 'cm', '<cmd>Lspsaga rename<CR>', opt)
+  mapbuf('n', 'gr', '<cmd>Lspsaga rename<CR>', opt)
   mapbuf('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', opt)
   mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
-  mapbuf('n', 'gh', '<cmd>Lspsaga hover_doc<cr>', opt)
-  mapbuf('n', 'gr', '<cmd>Lspsaga lsp_finder<CR>', opt)
-  mapbuf('n', 'gp', '<cmd>Lspsaga show_line_diagnostics<CR>', opt)
-  mapbuf('n', 'gj', '<cmd>Lspsaga diagnostic_jump_next<cr>', opt)
-  mapbuf('n', 'gk', '<cmd>Lspsaga diagnostic_jump_prev<cr>', opt)
+  mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
+  mapbuf('n', 'gh', ':Lspsaga hover_doc<CR>', opt)
+  mapbuf('n', 'gf', ':Lspsaga lsp_finder<CR>', opt)
+  mapbuf('n', 'gs', '<cmd>Lspsaga show_line_diagnostics<CR>', opt)
+  mapbuf('n', 'gj', ':Lspsaga diagnostic_jump_next<cr>', opt)
+  mapbuf('n', 'gk', ':Lspsaga diagnostic_jump_prev<cr>', opt)
   --mapbuf("n", '<C-n>', '<cmd>Lspsaga vim.lsp.buf.format<CR>', opt)
   --mapbuf("n", "<C-n>", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opt)
   -- 未用
-  -- mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   -- mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
   -- mapbuf('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opt)
   -- mapbuf("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opt)

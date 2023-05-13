@@ -27,7 +27,7 @@ mason_config.setup {
     ensure_installed = {
       "lua_ls",
       "clangd",
-      "cmake",
+      "neocmake",
     },
     automatic_installation = true,
 }
@@ -35,7 +35,7 @@ mason_config.setup {
 local servers = {
 	lua_ls = require("lsp.config.lua"),
 	clangd = require("lsp.config.clangd"),
-	cmake = require("lsp.config.cmake"),
+	neocmake = require("lsp.config.cmake"),
 }
 
 for name, config in pairs(servers) do
