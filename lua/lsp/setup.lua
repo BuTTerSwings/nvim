@@ -28,6 +28,7 @@ mason_config.setup {
       "lua_ls",
       "clangd",
       "neocmake",
+      "pyright",
     },
     automatic_installation = true,
 }
@@ -36,6 +37,7 @@ local servers = {
 	lua_ls = require("lsp.config.lua"),
 	clangd = require("lsp.config.clangd"),
 	neocmake = require("lsp.config.cmake"),
+  pyright = require("lsp.config.pyright"),
 }
 
 for name, config in pairs(servers) do

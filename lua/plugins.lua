@@ -116,7 +116,7 @@ require("lazy").setup({
     -- bufferline
     {
       'akinsho/bufferline.nvim',
-      version = "v3.*",
+      version = "3.*",
       dependencies = 'nvim-tree/nvim-web-devicons'
     },
     -- close buffers
@@ -167,6 +167,18 @@ require("lazy").setup({
     -- autopairs
     "windwp/nvim-autopairs",
 
+    -- outline
+    {
+      'simrat39/symbols-outline.nvim',
+      config = function ()
+        require("symbols-outline").setup({
+          width = 100,
+          auto_close = true,
+          auto_preview = false,
+          highlight_hovered_item = false,
+        })
+      end,
+    },
 
     -------------------------- debug ---------------------------
     "mfussenegger/nvim-dap",
@@ -218,4 +230,13 @@ require("lazy").setup({
 
     -- colorscheme OnsetGlaze
     "abhidahal/OnsetGlaze.nvim",
+
+    -- colorscheme gruvbox
+    { "ellisonleao/gruvbox.nvim", priority = 1000 },
+
+    -- colorscheme gruvbox-flat
+    'eddyekofo94/gruvbox-flat.nvim',
+
+    -- colorscheme gruvbox-material
+    'wittyjudge/gruvbox-material.nvim',
   })

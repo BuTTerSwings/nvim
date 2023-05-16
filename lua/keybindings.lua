@@ -226,9 +226,12 @@ pluginKeys.mapLsp = function(mapbuf)
   mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   mapbuf('n', 'gh', ':Lspsaga hover_doc<CR>', opt)
   mapbuf('n', 'gf', ':Lspsaga lsp_finder<CR>', opt)
-  mapbuf('n', 'gs', '<cmd>Lspsaga show_line_diagnostics<CR>', opt)
+  mapbuf('n', 'gs', ':Lspsaga show_line_diagnostics<CR>', opt)
   mapbuf('n', 'gj', ':Lspsaga diagnostic_jump_next<cr>', opt)
   mapbuf('n', 'gk', ':Lspsaga diagnostic_jump_prev<cr>', opt)
+  mapbuf('n', "<C-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
+  mapbuf('n', "<C-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
+
   --mapbuf("n", '<C-n>', '<cmd>Lspsaga vim.lsp.buf.format<CR>', opt)
   --mapbuf("n", "<C-n>", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opt)
   -- 未用
@@ -240,6 +243,9 @@ pluginKeys.mapLsp = function(mapbuf)
   -- mapbuf('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opt)
   -- mapbuf('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opt)
 end
+
+-- symbolsOutline
+map('n', '<F8>', ':SymbolsOutline<CR>', opt)
 
 -- return all custom keybindings to needed lua configurations
 return pluginKeys
