@@ -113,6 +113,13 @@ require("lazy").setup({
       'arkav/lualine-lsp-progress',
       dependencies = "nvim-lualine/lualine.nvim",
     },
+
+    -- lualine time
+    {
+      'archibate/lualine-time',
+      dependencies = "nvim-lualine/lualine.nvim",
+    },
+
     -- bufferline
     {
       'akinsho/bufferline.nvim',

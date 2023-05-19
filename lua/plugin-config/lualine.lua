@@ -34,7 +34,7 @@ require('lualine').setup {
       'filename',
       'lsp_progress',
     },
-    lualine_x = {'filesize', 'encoding', 'fileformat', 'filetype'},
+    lualine_x = {'cdate', 'ctime', 'filesize', 'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },

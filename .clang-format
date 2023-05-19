@@ -108,7 +108,7 @@ BraceWrapping:
 # 指针对齐
 # 貌似不起作用
 # 或许受厂商影响,google为左对齐
-# PointerAlignment: Left
+PointerAlignment: Left
 
 # ____________________________________________________________
 
