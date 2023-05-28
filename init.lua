@@ -5,8 +5,8 @@ if vim.fn.exists "g:neovide" then
   vim.cmd(neovide_cfg)
 end
 vim.o.guifont = "CaskaydiaCove Nerd Font:h13"
--- vim.o.guifont = "Hack Nerd Font:h14"
--- vim.o.guifont = "JetBrainsMono Nerd Font:h13"
+-- vim.o.guifont = "Hack Nerd Font:h13"
+-- vim.o.guifont = "JetBrainsMono Nerd Font:h12"
 
 require("basic")
 require("keybindings")

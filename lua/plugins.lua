@@ -198,6 +198,9 @@ require("lazy").setup({
     -- colorscheme onedarkpro
     "olimorris/onedarkpro.nvim",
 
+    -- colorscheme onedark
+    -- 'navarasu/onedark.nvim',
+
     -- colorscheme onehalf
     "szsdk/onehalf.nvim",
     'rktjmp/lush.nvim',
