@@ -196,7 +196,10 @@ require("lazy").setup({
     },
     ----------------------- colorscheme ------------------------
     -- colorscheme onedarkpro
-    "olimorris/onedarkpro.nvim",
+    {
+      "olimorris/onedarkpro.nvim",
+      -- tag = "0.8.0"
+    },
 
     -- colorscheme onedark
     -- 'navarasu/onedark.nvim',

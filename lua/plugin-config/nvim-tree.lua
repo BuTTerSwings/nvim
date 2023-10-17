@@ -75,10 +75,10 @@ require("nvim-tree").setup({
     view = {
       hide_root_folder = false,
       width = 30,
-      mappings = {
-          custom_only = true,
-          -- list = list_keys,
-        },
+      -- mappings = {
+      --     custom_only = true,
+      --     list = list_keys,
+      --   },
 	    signcolumn = 'yes',
     },
     renderer = {
