@@ -73,7 +73,7 @@ require("nvim-tree").setup({
       enable = false,
     },
     view = {
-      hide_root_folder = false,
+      -- hide_root_folder = false,
       width = 30,
       -- mappings = {
       --     custom_only = true,
